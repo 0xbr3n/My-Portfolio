@@ -4,3 +4,10 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# Local dev / secrets — never publish (whole repo root is served by Cloudflare)
+claude.md
+*.backup
+PGP-Passphrase.txt
+.claude/
+.vscode/

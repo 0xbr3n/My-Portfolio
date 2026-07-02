@@ -3,194 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>0xBR3N — Brendon Teo · Security Portfolio</title>
+  <meta name="description" content="Brendon Teo (0xBR3N) — Senior Penetration Tester based in Singapore. CVE-2024-40125 author. OSCP, OSWE, OSEP." />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>0xBR3N — Brendon Teo · Senior Penetration Tester</title>
+  <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon"  href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png" />
-  <link rel="apple-touch-icon"          href="favicon-64.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <canvas id="matrix-canvas"></canvas>
-  <div class="scanlines"></div>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-trail" id="cursor-trail"></div>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursor-trail" aria-hidden="true"></div>
 
-  <!-- NAV -->
+  <!-- ═════════════ NAV ═════════════ -->
   <nav class="nav" id="nav">
-    <div class="nav-logo">
+    <a href="#home" class="nav-logo">
       <span class="bracket">[</span><span class="logo-text">0xBR3N</span><span class="bracket">]</span>
-    </div>
+    </a>
     <ul class="nav-links">
-      <li><a href="#about"    class="nav-link"><span class="num">01.</span>About</a></li>
-      <li><a href="#cves"     class="nav-link"><span class="num">02.</span>CVEs</a></li>
-      <li><a href="#research" class="nav-link"><span class="num">03.</span>Research</a></li>
-      <li><a href="#tools"    class="nav-link"><span class="num">04.</span>Tools</a></li>
-      <li><a href="#contact"  class="nav-link"><span class="num">05.</span>Contact</a></li>
+      <li><a href="#about"    class="nav-link"><span class="num">01</span>About</a></li>
+      <li><a href="#cves"     class="nav-link"><span class="num">02</span>CVEs</a></li>
+      <li><a href="#research" class="nav-link"><span class="num">03</span>Research</a></li>
+      <li><a href="#tools"    class="nav-link"><span class="num">04</span>Tools</a></li>
+      <li><a href="#contact"  class="nav-link"><span class="num">05</span>Contact</a></li>
     </ul>
     <div class="nav-status">
       <span class="status-dot"></span>
-      <span class="status-text">SG / UTC+8</span>
+      <span class="status-text">SG · UTC+8</span>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="menu">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- MOBILE NAV DRAWER -->
   <div class="mobile-nav" id="mobile-nav">
     <ul>
-      <li><a href="#about"    class="nav-link" onclick="closeMobileNav()"><span class="num">01.</span>About</a></li>
-      <li><a href="#cves"     class="nav-link" onclick="closeMobileNav()"><span class="num">02.</span>CVEs</a></li>
-      <li><a href="#research" class="nav-link" onclick="closeMobileNav()"><span class="num">03.</span>Research</a></li>
-      <li><a href="#tools"    class="nav-link" onclick="closeMobileNav()"><span class="num">04.</span>Tools</a></li>
-      <li><a href="#contact"  class="nav-link" onclick="closeMobileNav()"><span class="num">05.</span>Contact</a></li>
+      <li><a href="#about"    class="nav-link" onclick="closeMobileNav()"><span class="num">01</span>About</a></li>
+      <li><a href="#cves"     class="nav-link" onclick="closeMobileNav()"><span class="num">02</span>CVEs</a></li>
+      <li><a href="#research" class="nav-link" onclick="closeMobileNav()"><span class="num">03</span>Research</a></li>
+      <li><a href="#tools"    class="nav-link" onclick="closeMobileNav()"><span class="num">04</span>Tools</a></li>
+      <li><a href="#contact"  class="nav-link" onclick="closeMobileNav()"><span class="num">05</span>Contact</a></li>
     </ul>
   </div>
 
-  <!-- ═══ HERO ═══ -->
+  <!-- ═════════════ HERO — editorial split ═════════════ -->
   <section class="hero" id="home">
 
-    <!-- Left: Identity -->
-    <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-tick"></span>
+      <span>// SUBJECT IDENTIFIED · SINGAPORE · LIVE</span>
+    </div>
 
-      <div class="hero-tag animate-in" data-delay="0">
-        <span class="tag-line">// Singapore-based Senior Penetration Tester</span>
-      </div>
+    <!-- Massive display name — Oryzo-style bleed -->
+    <h1 class="hero-display" data-text="0xBR3N">
+      <span class="display-line">0xBR3N</span>
+    </h1>
 
-      <!-- Name identity block -->
-      <div class="identity-block animate-in" data-delay="1">
-        <div class="identity-label">SUBJECT IDENTIFIED</div>
-        <h1 class="identity-name" id="glitch-name" data-text="BRENDON TEO">BRENDON TEO</h1>
-        <div class="identity-title">Senior Penetration Tester <span class="id-dot">·</span> Singapore</div>
-      </div>
+    <div class="hero-row">
 
-      <!-- CVE Achievement badge — makes him stand out immediately -->
-      <div class="cve-badge animate-in" data-delay="2">
-        <div class="cve-badge-inner">
-          <div class="cve-badge-left">
-            <span class="cve-badge-label">CRITICAL CVE</span>
-            <span class="cve-badge-id">CVE-2024-40125</span>
+      <div class="hero-left">
+        <div class="hero-identity">
+          <div class="identity-name">BRENDON TEO</div>
+          <div class="identity-role">Senior Penetration Tester · Singapore</div>
+        </div>
+
+        <p class="hero-lede">
+          Designed to <em>find</em>, <em>exploit</em>, and <em>report</em> what others miss.
+          0xBR3N makes the unseen vulnerabilities feel <em>inevitable</em>.
+        </p>
+
+        <!-- CVE Achievement badge -->
+        <div class="cve-badge">
+          <div class="cve-badge-inner">
+            <div class="cve-badge-left">
+              <span class="cve-badge-label">CRITICAL CVE</span>
+              <span class="cve-badge-id">CVE-2024-40125</span>
+            </div>
+            <div class="cve-badge-score">9.8</div>
           </div>
-          <div class="cve-badge-score">9.8</div>
+          <div class="cve-badge-sub">Unauthenticated RCE · Full Admin on Windows · NVD Published</div>
         </div>
-        <div class="cve-badge-sub">Unauthenticated RCE · Full Admin on Windows · NVD Published</div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" id="yoe-counter">0</span>
+            <span class="stat-label">Years Active</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" id="cve-counter">1</span>
+            <span class="stat-label">CVEs Filed</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-label">Sectors</span>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#cves" class="btn btn-primary">View CVEs</a>
+          <a href="blog.html" class="btn btn-ghost">Read Research</a>
+        </div>
       </div>
 
-      <div class="hero-sub animate-in" data-delay="3">
-        <div class="typewriter" id="typewriter"></div>
+      <!-- ── HACKER SCENE — replaces the Oryzo cork bowl ── -->
+      <div class="hero-scene" aria-hidden="true">
+        <div class="scene-grid"></div>
+        <div class="scene-rulers">
+          <div class="ruler ruler-top"></div>
+          <div class="ruler ruler-left"></div>
+        </div>
+
+        <!-- Floating tool: nmap mini-card -->
+        <div class="scene-tool scene-tool-nmap">
+          <div class="tool-card-header">
+            <span class="tool-card-dot"></span>
+            <span>nmap · target</span>
+          </div>
+          <div class="tool-card-body">
+            <div class="tool-row"><span class="tool-port">22/tcp</span><span class="tool-svc">ssh</span></div>
+            <div class="tool-row"><span class="tool-port">80/tcp</span><span class="tool-svc">http</span></div>
+            <div class="tool-row open"><span class="tool-port">445/tcp</span><span class="tool-svc">smb · VULN</span></div>
+            <div class="tool-row"><span class="tool-port">3389/tcp</span><span class="tool-svc">rdp</span></div>
+          </div>
+        </div>
+
+        <!-- Floating tool: packet stream -->
+        <div class="scene-tool scene-tool-packets">
+          <div class="tool-card-header">
+            <span class="tool-card-dot dot-red"></span>
+            <span>tcpdump · eth0</span>
+          </div>
+          <div class="tool-card-body packet-stream" id="packet-stream">
+            <div class="packet">[→] SYN  10.0.0.5:42311</div>
+            <div class="packet">[←] ACK  10.0.0.1:445</div>
+            <div class="packet">[→] PSH  payload(1448)</div>
+            <div class="packet hit">[!] EXPLOIT — shell</div>
+          </div>
+        </div>
+
+        <!-- Main terminal — focal point -->
+        <div class="terminal" id="terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-r"></span>
+              <span class="dot dot-y"></span>
+              <span class="dot dot-g"></span>
+            </div>
+            <span class="terminal-title">bash — root@0xbr3n:~</span>
+            <span class="terminal-tag">LIVE</span>
+          </div>
+          <div class="terminal-body" id="terminal-body" role="log" aria-live="off">
+            <!-- Lines injected by JS -->
+          </div>
+        </div>
+
       </div>
 
-      <div class="hero-stats animate-in" data-delay="4">
-        <div class="stat">
-          <span class="stat-num" id="yoe-counter">0</span>
-          <span class="stat-label">Years Active</span>
-        </div>
-        <div class="stat-divider">|</div>
-        <div class="stat">
-          <span class="stat-num" id="cve-counter">1</span>
-          <span class="stat-label">CVEs Filed</span>
-        </div>
-        <div class="stat-divider">|</div>
-        <div class="stat">
-          <span class="stat-num" data-target="3">0</span>
-          <span class="stat-label">Sectors</span>
-        </div>
-      </div>
-
-      <div class="hero-cta animate-in" data-delay="5">
-        <a href="#cves" class="btn btn-primary">View CVEs</a>
-        <a href="blog.html" class="btn btn-ghost">Read Research</a>
-      </div>
     </div>
-
-    <!-- Right: Terminal -->
-    <div class="hero-terminal animate-in" data-delay="3">
-      <div class="terminal-header">
-        <div class="terminal-dots">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-        </div>
-        <span class="terminal-title">bash — brendon@sg-lab</span>
-      </div>
-      <div class="terminal-body" id="terminal-body">
-        <div class="terminal-line"><span class="prompt">~$</span> <span class="cmd">whoami</span></div>
-        <div class="terminal-line output">Brendon Teo · Sr. Penetration Tester · SG</div>
-        <div class="terminal-line"><span class="prompt">~$</span> <span class="cmd">cat cves.txt</span></div>
-        <div class="terminal-line output err">[CRITICAL 9.8] CVE-2024-40125</div>
-        <div class="terminal-line output suc">[+] Unauthenticated RCE — Full Admin</div>
-        <div class="terminal-line"><span class="prompt">~$</span> <span class="cmd">cat specializations.txt</span></div>
-        <div class="terminal-line output">> Web &amp; Infrastructure VAPT</div>
-        <div class="terminal-line output">> Active Directory Testing</div>
-        <div class="terminal-line output">> Kiosk &amp; Thick Client PT</div>
-        <div class="terminal-line output">> Source Code Reviews</div>
-        <div class="terminal-line"><span class="prompt">~$</span> <span class="cmd">cat sectors.txt</span></div>
-        <div class="terminal-line output">Government | MNCs | SMEs</div>
-        <div class="terminal-line"><span class="prompt">~$</span> <span class="cmd blink">_</span></div>
-      </div>
-    </div>
-
   </section>
 
-  <!-- ═══ ABOUT ═══ -->
-  <section class="section about" id="about">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About</h2>
-      <div class="section-line"></div>
+  <!-- ═════════════ MANIFESTO — Oryzo editorial moment ═════════════ -->
+  <section class="manifesto" aria-label="manifesto">
+    <div class="manifesto-inner">
+      <div class="eyebrow"><span class="eyebrow-tick"></span>// MANIFESTO</div>
+      <h2 class="display-large">
+        Built to <em>break</em>.<br>
+        Built to <em>defend</em>.
+      </h2>
+      <p class="display-lede">
+        Every system has a seam. I find it before someone else does &mdash;
+        then I write the report that makes sure it stays closed.
+      </p>
     </div>
+  </section>
+
+  <!-- ═════════════ ABOUT ═════════════ -->
+  <section class="section" id="about">
+    <header class="section-head">
+      <span class="section-num">01 / About</span>
+      <h2 class="section-title">Background &amp; <em>credentials</em></h2>
+      <p class="section-lede">Four years of legal break-ins across government, MNCs and SMEs in Singapore.</p>
+    </header>
+
     <div class="about-grid">
 
       <div class="about-text reveal">
         <p class="about-intro">I don't wait for attackers to find the holes. I find them first.</p>
-        <p>Based in <strong>Singapore</strong>, I'm a senior penetration tester who has spent the last <strong><span id="about-yoe">4</span> years</strong> breaking into things legally. My experience spans across government agencies, global MNCs and SMEs across Singapore. Whether it's a misconfigured JWT, or an exposed Admin Panel prone to CVEs, I've tried a few stuff during the years and really enjoy discovering new vulnerabilities.</p>
-        <p>Notably, I discovered a <strong>CRITICAL 9.8 CVE</strong> granting full administrative access on a Windows Endpoint. Hopefully, there will be more CVEs to come below!</p>
+        <p>Based in <strong>Singapore</strong>, I'm a senior penetration tester who has spent the last <strong><span id="about-yoe">4</span> years</strong> breaking into things legally. My experience spans government agencies, global MNCs and SMEs across the region. Whether it's a misconfigured JWT, an exposed admin panel, or a logic flaw nobody else looked twice at &mdash; I enjoy the hunt.</p>
+        <p>Notably, I discovered a <strong>CRITICAL 9.8 CVE</strong> granting full administrative access on a Windows endpoint. More to come.</p>
 
-        <!-- Cert cards — redesigned for readability -->
         <div class="cert-section">
           <div class="cert-section-label">// Certifications</div>
           <div class="cert-grid">
-            <div class="cert-card cert-top">
-              <span class="cert-icon">🏆</span>
+            <div class="cert-card cert-top reveal">
+              <span class="cert-icon">★</span>
               <span class="cert-name">OSCP</span>
               <span class="cert-issuer">OffSec</span>
             </div>
-            <div class="cert-card cert-top">
-              <span class="cert-icon">🏆</span>
+            <div class="cert-card cert-top reveal">
+              <span class="cert-icon">★</span>
               <span class="cert-name">OSEP</span>
               <span class="cert-issuer">OffSec</span>
             </div>
-            <div class="cert-card cert-top">
-              <span class="cert-icon">🏆</span>
+            <div class="cert-card cert-top reveal">
+              <span class="cert-icon">★</span>
               <span class="cert-name">OSWE</span>
               <span class="cert-issuer">OffSec</span>
             </div>
-            <div class="cert-card">
-              <span class="cert-icon">🎯</span>
+            <div class="cert-card reveal">
+              <span class="cert-icon">◆</span>
               <span class="cert-name">CRT</span>
               <span class="cert-issuer">CREST</span>
             </div>
-            <div class="cert-card">
-              <span class="cert-icon">🎯</span>
+            <div class="cert-card reveal">
+              <span class="cert-icon">◆</span>
               <span class="cert-name">CEH Master</span>
               <span class="cert-issuer">EC-Council</span>
             </div>
-            <div class="cert-card">
-              <span class="cert-icon">📋</span>
+            <div class="cert-card reveal">
+              <span class="cert-icon">▣</span>
               <span class="cert-name">CKBPro</span>
-              <span class="cert-issuer">SecOps Group</span>
+              <span class="cert-issuer">SecOps</span>
             </div>
-            <div class="cert-card">
-              <span class="cert-icon">🤖</span>
+            <div class="cert-card reveal">
+              <span class="cert-icon">⬢</span>
               <span class="cert-name">C-AI/ML</span>
-              <span class="cert-issuer">SecOps Group</span>
+              <span class="cert-issuer">SecOps</span>
             </div>
-            <div class="cert-card">
-              <span class="cert-icon">🌐</span>
+            <div class="cert-card reveal">
+              <span class="cert-icon">⌬</span>
               <span class="cert-name">CCNA CyberOps</span>
               <span class="cert-issuer">Cisco</span>
             </div>
@@ -203,15 +250,15 @@
           <h4>Specialisations</h4>
           <div class="skill-list">
             <span class="skill-tag">Web VAPT</span>
-            <span class="skill-tag">Infra VAPT / OT VAPT</span>
-            <span class="skill-tag">Active Directory Testing</span>
+            <span class="skill-tag">Infra / OT VAPT</span>
+            <span class="skill-tag">Active Directory</span>
             <span class="skill-tag">Kiosk PT</span>
             <span class="skill-tag">Thick Client PT</span>
             <span class="skill-tag">Source Code Review</span>
             <span class="skill-tag">Mobile App Testing</span>
             <span class="skill-tag">Cloud (Azure / AWS)</span>
             <span class="skill-tag">Phishing Campaigns</span>
-            <span class="skill-tag">Host Config Reviews</span>
+            <span class="skill-tag">Host Config Review</span>
             <span class="skill-tag">Risk Assessments</span>
           </div>
         </div>
@@ -220,9 +267,9 @@
           <div class="skill-list">
             <span class="skill-tag">Burp Suite Pro</span>
             <span class="skill-tag">Metasploit</span>
-            <span class="skill-tag">Sliver Framework</span>
-            <span class="skill-tag">Nessus Professional</span>
-            <span class="skill-tag">CIS-CAT Assessor</span>
+            <span class="skill-tag">Sliver</span>
+            <span class="skill-tag">Nessus Pro</span>
+            <span class="skill-tag">CIS-CAT</span>
             <span class="skill-tag">BloodHound</span>
             <span class="skill-tag">Frida</span>
             <span class="skill-tag">Ghidra</span>
@@ -235,82 +282,86 @@
         <div class="skill-category">
           <h4>Sectors</h4>
           <div class="skill-list">
-            <span class="skill-tag">🏛 Government</span>
-            <span class="skill-tag">🏢 MNCs</span>
-            <span class="skill-tag">🏗 SMEs</span>
+            <span class="skill-tag">Government</span>
+            <span class="skill-tag">MNCs</span>
+            <span class="skill-tag">SMEs</span>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══ CVEs ═══ -->
-  <section class="section cves" id="cves">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <h2 class="section-title">CVE Database</h2>
-      <div class="section-line"></div>
-    </div>
+  <!-- ═════════════ CVEs ═════════════ -->
+  <section class="section" id="cves">
+    <header class="section-head">
+      <span class="section-num">02 / CVE Database</span>
+      <h2 class="section-title">Disclosed <em>vulnerabilities</em></h2>
+      <p class="section-lede">Synced live from GitHub. Click through for proofs of concept.</p>
+    </header>
+
     <div class="cve-live-badge">
       <span class="status-dot"></span>
       <span>Live count synced from GitHub · <span id="cve-live-count">1</span> CVE(s) published</span>
     </div>
+
     <div class="cve-filter">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="critical">Critical</button>
     </div>
+
     <div class="cve-grid" id="cve-grid">
-      <div class="cve-card reveal" data-severity="critical">
+      <article class="cve-card reveal" data-severity="critical">
         <div class="cve-top">
           <span class="cve-id">CVE-2024-40125</span>
-          <span class="severity critical">CRITICAL 9.8</span>
+          <span class="severity critical">CRITICAL · 9.8</span>
         </div>
         <h3 class="cve-title">Arbitrary File Upload → RCE in Closed-Loop Technology CLESS Server v4.5.2</h3>
-        <p class="cve-desc">Unauthenticated arbitrary file upload in the Media Manager function allows attackers to upload a crafted PHP file and execute arbitrary code — yielding full administrative access on Windows.</p>
+        <p class="cve-desc">Unauthenticated arbitrary file upload in the Media Manager allows an attacker to upload a crafted PHP file and execute arbitrary code &mdash; yielding full administrative access on Windows.</p>
         <div class="cve-meta">
           <span class="cve-tag">RCE</span>
           <span class="cve-tag">File Upload</span>
           <span class="cve-tag">CWE-434</span>
           <span class="cve-tag">Windows</span>
-          <span class="cve-tag">CVSS:3.1/AV:N/AC:L/PR:N/UI:N</span>
         </div>
         <div class="cve-footer">
-          <span class="cve-date">Published: Sep 19, 2024 · NVD</span>
+          <span class="cve-date">Published Sep 19, 2024 · NVD</span>
           <div class="cve-links-row">
-            <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-40125" target="_blank" class="cve-link">NVD →</a>
-            <a href="https://github.com/0xbr3n/My-CVEs/tree/main/CVE-2024-40125" target="_blank" class="cve-link">PoC →</a>
+            <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-40125" target="_blank" rel="noopener noreferrer" class="cve-link">NVD →</a>
+            <a href="https://github.com/0xbr3n/My-CVEs/tree/main/CVE-2024-40125" target="_blank" rel="noopener noreferrer" class="cve-link">PoC →</a>
           </div>
         </div>
-      </div>
+      </article>
     </div>
-    <div class="cve-cta">
-      <a href="https://github.com/0xbr3n/My-CVEs" target="_blank" class="btn btn-primary">View All CVEs on GitHub</a>
+
+    <div class="section-cta">
+      <a href="https://github.com/0xbr3n/My-CVEs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View All CVEs on GitHub</a>
     </div>
   </section>
 
-  <!-- ═══ RESEARCH ═══ -->
-  <section class="section research" id="research">
-    <div class="section-header">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Research &amp; Writeups</h2>
-      <div class="section-line"></div>
-    </div>
+  <!-- ═════════════ RESEARCH ═════════════ -->
+  <section class="section" id="research">
+    <header class="section-head">
+      <span class="section-num">03 / Research &amp; Writeups</span>
+      <h2 class="section-title">Writing on <em>offensive security</em></h2>
+      <p class="section-lede">Long-form on Medium. Technical PoCs on GitHub.</p>
+    </header>
+
     <div class="research-grid">
-      <article class="post-card reveal post-featured">
+      <article class="post-card post-featured reveal">
         <div class="post-img-placeholder">
-          <div class="post-glitch">&#x2592;&#x2591;&#x2593;</div>
+          <div class="post-glitch" data-text="OSCP">OSCP</div>
         </div>
         <div class="post-content">
           <div class="post-meta">
             <span class="post-cat">Certification · Medium</span>
             <span class="post-date">Nov 2022</span>
           </div>
-          <h3 class="post-title">OSCP — How I Tried Harder</h3>
-          <p class="post-excerpt">A candid breakdown of the OSCP journey — the pain, the methodology, the 24-hour exam war stories, and what it actually takes to earn one of offensive security's most respected certs. Pinned article on Medium.</p>
-          <a href="https://medium.com/@btkl123/oscp-how-i-tried-harder-d6840a6efec2" target="_blank" class="post-read">Read on Medium →</a>
+          <h3 class="post-title">OSCP &mdash; How I Tried Harder</h3>
+          <p class="post-excerpt">A candid breakdown of the OSCP journey: the pain, the methodology, the 24-hour exam war stories, and what it actually takes to earn one of offensive security's most respected certs. Pinned article on Medium.</p>
+          <a href="https://medium.com/@btkl123/oscp-how-i-tried-harder-d6840a6efec2" target="_blank" rel="noopener noreferrer" class="post-read">Read on Medium →</a>
         </div>
       </article>
+
       <article class="post-card reveal">
         <div class="post-content">
           <div class="post-meta">
@@ -319,80 +370,112 @@
           </div>
           <h3 class="post-title">CVE-2024-40125: File Upload to Full Admin RCE</h3>
           <p class="post-excerpt">How a single unvalidated upload endpoint in CLESS Server v4.5.2 led to unauthenticated remote code execution and full Windows admin takeover. CVSS 9.8 CRITICAL.</p>
-          <a href="https://github.com/0xbr3n/My-CVEs/tree/main/CVE-2024-40125" target="_blank" class="post-read">Read PoC →</a>
+          <a href="https://github.com/0xbr3n/My-CVEs/tree/main/CVE-2024-40125" target="_blank" rel="noopener noreferrer" class="post-read">Read PoC →</a>
         </div>
       </article>
     </div>
-    <div class="cve-cta">
-      <a href="https://medium.com/@btkl123" target="_blank" class="btn btn-ghost">All Articles on Medium</a>
+
+    <div class="section-cta section-cta-row">
+      <a href="https://medium.com/@btkl123" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">All Articles on Medium</a>
       <a href="blog.html" class="btn btn-primary">View All Writeups</a>
     </div>
   </section>
 
-  <!-- ═══ TOOLS ═══ -->
-  <section class="section tools" id="tools">
-    <div class="section-header">
-      <span class="section-num">04</span>
-      <h2 class="section-title">My Custom Tools</h2>
-      <div class="section-line"></div>
-    </div>
+  <!-- ═════════════ TOOLS ═════════════ -->
+  <section class="section" id="tools">
+    <header class="section-head">
+      <span class="section-num">04 / Custom Tools</span>
+      <h2 class="section-title">Built for the <em>field</em></h2>
+      <p class="section-lede">Python &amp; full-stack tooling I built to remove manual drudgery from engagements &mdash; headlined by <strong>VibeDocs</strong>, my flagship open-source report generator.</p>
+    </header>
+
     <div class="tools-grid">
-      <div class="tool-card reveal">
-        <div class="tool-icon">🌐</div>
+      <article class="tool-card featured reveal">
+        <img class="featured-banner" src="img/vibedocs-banner.png" alt="VibeDocs — a vibecoded pentest report generator" loading="lazy" />
+        <div class="featured-body">
+          <span class="flagship-badge">★ Flagship Creation</span>
+          <h3 class="tool-name">VibeDocs</h3>
+          <p class="tool-desc">My biggest build to date &mdash; a full-stack, open-source penetration-test <strong>report generator</strong> that turns raw findings into clean, consistent Word &amp; PDF deliverables (plus Excel trackers) in minutes. Ships a reusable findings library, CVSS scoring, scan import (Nessus / Prowler / Steampipe), auto-generated report templates, and one-click Word / PDF / encrypted-ZIP export. Self-hostable with Docker &mdash; clone, <code>docker compose up</code>, done.</p>
+          <div class="tool-tags">
+            <span class="tool-tag purple">FastAPI</span>
+            <span class="tool-tag purple">Python</span>
+            <span class="tool-tag purple">Docker</span>
+            <span class="tool-tag purple">Full-Stack</span>
+            <span class="tool-tag purple">Open Source</span>
+          </div>
+          <a href="https://github.com/0xbr3n/VibeDocs" target="_blank" rel="noopener noreferrer" class="tool-link purple">View VibeDocs on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="tool-card reveal">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        </div>
         <h3 class="tool-name">BT-WebSuite</h3>
-        <p class="tool-desc">Custom web security testing suite — automated recon, parameter fuzzing, endpoint enumeration, and vulnerability discovery streamlined for Web VAPT engagements.</p>
+        <p class="tool-desc">Custom web security testing suite &mdash; automated recon, parameter fuzzing, endpoint enumeration, and vulnerability discovery streamlined for Web VAPT engagements.</p>
         <div class="tool-tags"><span class="tool-tag">Python</span><span class="tool-tag">Web VAPT</span></div>
-        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/BT-WebSuite" target="_blank" class="tool-link">GitHub →</a>
-      </div>
-      <div class="tool-card reveal">
-        <div class="tool-icon">📊</div>
+        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/BT-WebSuite" target="_blank" rel="noopener noreferrer" class="tool-link">GitHub →</a>
+      </article>
+
+      <article class="tool-card reveal">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18M3 15h6"/></svg>
+        </div>
         <h3 class="tool-name">CIS-NessusToExcel</h3>
-        <p class="tool-desc">Converts Nessus CIS compliance scan results into structured, client-ready Excel reports with full summary of comply/non-comply findings. Eliminates hours of post-scan manual formatting.</p>
+        <p class="tool-desc">Converts Nessus CIS compliance scan results into structured, client-ready Excel reports with full summary of comply/non-comply findings. Eliminates hours of post-scan formatting.</p>
         <div class="tool-tags"><span class="tool-tag">Python</span><span class="tool-tag">Reporting</span></div>
-        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/CIS-NessusToExcel" target="_blank" class="tool-link">GitHub →</a>
-      </div>
-      <div class="tool-card reveal">
-        <div class="tool-icon">🔍</div>
+        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/CIS-NessusToExcel" target="_blank" rel="noopener noreferrer" class="tool-link">GitHub →</a>
+      </article>
+
+      <article class="tool-card reveal">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
         <h3 class="tool-name">VA-Automater</h3>
-        <p class="tool-desc">Terminal-driven tool that automates VA reporting — removes risk-accepted findings, buckets by category, reassesses CVSS scores, and closes remediated findings in your tracking spreadsheet.</p>
+        <p class="tool-desc">Terminal-driven tool that automates VA reporting &mdash; removes risk-accepted findings, buckets by category, reassesses CVSS scores, and closes remediated findings in your tracking sheet.</p>
         <div class="tool-tags"><span class="tool-tag">Python</span><span class="tool-tag">Infra VAPT</span></div>
-        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/Infra-VA" target="_blank" class="tool-link">GitHub →</a>
-      </div>
-      <div class="tool-card reveal">
-        <div class="tool-icon">💥</div>
+        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/Infra-VA" target="_blank" rel="noopener noreferrer" class="tool-link">GitHub →</a>
+      </article>
+
+      <article class="tool-card reveal">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 4 14h7l-2 8 9-12h-7l2-8z"/></svg>
+        </div>
         <h3 class="tool-name">OSED-Automation</h3>
-        <p class="tool-desc">Automation scripts for exploit development workflows built during OSED prep. Handles bad character analysis, shellcode generation, and skeleton exploit scaffolding.</p>
+        <p class="tool-desc">Automation scripts for exploit-development workflows built during OSED prep. Handles bad character analysis, shellcode generation, and skeleton exploit scaffolding.</p>
         <div class="tool-tags"><span class="tool-tag">Python</span><span class="tool-tag">Exploit Dev</span></div>
-        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/OSED-Automation" target="_blank" class="tool-link">GitHub →</a>
-      </div>
+        <a href="https://github.com/0xbr3n/VAPT-Tools/tree/main/OSED-Automation" target="_blank" rel="noopener noreferrer" class="tool-link">GitHub →</a>
+      </article>
     </div>
-    <div class="cve-cta">
-      <a href="https://github.com/0xbr3n/VAPT-Tools" target="_blank" class="btn btn-ghost">View All on GitHub</a>
+
+    <div class="section-cta">
+      <a href="https://github.com/0xbr3n/VAPT-Tools" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View All on GitHub</a>
     </div>
   </section>
 
-  <!-- ═══ CONTACT ═══ -->
-  <section class="section contact" id="contact">
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <h2 class="section-title">Contact</h2>
-      <div class="section-line"></div>
-    </div>
+  <!-- ═════════════ CONTACT ═════════════ -->
+  <section class="section" id="contact">
+    <header class="section-head">
+      <span class="section-num">05 / Contact</span>
+      <h2 class="section-title">Let's <em>talk</em></h2>
+      <p class="section-lede">Security, pentesting, war stories &mdash; reach out below.</p>
+    </header>
+
     <div class="contact-content reveal">
       <div class="contact-text">
-        <p class="contact-intro">I would love to <strong>connect</strong>, if you just wanna talk about <strong>CyberSecurity</strong> or <strong>Pentesting</strong> in general. Feel free to reach out to me via any of my contact details below :)</p>
-        <p>For sensitive communications, please encrypt with my PGP key. Fastest responses via email or LinkedIn.</p>
+        <p class="contact-intro">I'd love to <strong>connect</strong> if you want to talk <strong>cybersecurity</strong> or <strong>pentesting</strong>. Reach out via any of the channels below.</p>
+        <p>For sensitive communications, encrypt with my PGP key. Fastest responses via email or LinkedIn.</p>
         <div class="contact-links">
           <a href="mailto:btkl123@gmail.com" class="contact-item">
             <span class="contact-icon">✉</span><span>btkl123@gmail.com</span>
           </a>
-          <a href="https://github.com/0xbr3n" target="_blank" class="contact-item">
+          <a href="https://github.com/0xbr3n" target="_blank" rel="noopener noreferrer" class="contact-item">
             <span class="contact-icon">⌨</span><span>github.com/0xbr3n</span>
           </a>
-          <a href="https://www.linkedin.com/in/brendon-teo-195971152/" target="_blank" class="contact-item">
+          <a href="https://www.linkedin.com/in/brendon-teo-195971152/" target="_blank" rel="noopener noreferrer" class="contact-item">
             <span class="contact-icon">◈</span><span>linkedin.com/in/brendon-teo-195971152</span>
           </a>
-          <a href="https://medium.com/@btkl123" target="_blank" class="contact-item">
+          <a href="https://medium.com/@btkl123" target="_blank" rel="noopener noreferrer" class="contact-item">
             <span class="contact-icon">✍</span><span>medium.com/@btkl123</span>
           </a>
         </div>
